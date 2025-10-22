@@ -1,0 +1,65 @@
+<header class="dialog-header">
+    <h2 mat-dialog-title>{{ product.name }}</h2>
+    <button mat-icon-button (click)="onCloseClick()" aria-label="Cerrar">
+    <mat-icon>close</mat-icon>
+  </button>
+</header>
+
+<mat-dialog-content class="dialog-content">
+    <div class="image-gallery">
+        <div class="main-image-wrapper">
+            <img [src]="product.images[currentImageIndex] || 'assets/placeholder.jpg'" [alt]="product.name" class="main-image" />
+        </div>
+        <div class="thumbnail-grid">
+            @for (image of product.images; track $index) {
+            <button class="thumbnail-button" [class.active]="currentImageIndex === $index" (click)="setCurrentImage($index)">
+          <img [src]="image" [alt]="product.name + ' ' + $index" class="thumbnail-image" />
+        </button> }
+        </div>
+    </div>
+
+    <div class="details-column">
+        <div class="price-badge-row">
+            <span class="product-price">{{ formatPrice(product.price) }}</span> @if (product.badge) {
+            <span mat-flat-button color="warn" class="badge">
+          {{ product.badge }}
+        </span> }
+        </div>
+
+        <p class="product-description">{{ product.description }}</p>
+
+        <div>
+            <h4 class="details-subtitle">Características:</h4>
+            <ul class="features-list">
+                @for (feature of product.features; track $index) {
+                <li>{{ feature }}</li>
+                }
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="details-subtitle">Color: {{ selectedColor }}</h4>
+            <mat-button-toggle-group [(ngModel)]="selectedColor" aria-label="Seleccionar Color">
+                @for (color of product.colors; track color) {
+                <mat-button-toggle [value]="color">{{ color }}</mat-button-toggle>
+                }
+            </mat-button-toggle-group>
+        </div>
+
+        <div>
+            <h4 class="details-subtitle">Talla: {{ selectedSize || '' }}</h4>
+            <mat-button-toggle-group [(ngModel)]="selectedSize" aria-label="Seleccionar Talla" class="size-toggle-group">
+                @for (size of product.sizes; track size) {
+                <mat-button-toggle [value]="size" class="size-toggle-button">{{ size }}</mat-button-toggle>
+                }
+            </mat-button-toggle-group>
+        </div>
+
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-flat-button color="primary" class="add-to-cart-button" (click)="onAddToCartClick()">
+    Agregar al Carrito
+  </button>
+</mat-dialog-actions>

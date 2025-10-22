@@ -1,0 +1,20 @@
+<div class="card-container" (click)="openProductDialog()">
+    <div class="image-wrapper">
+        @if (product.badge) {
+        <span mat-flat-button color="warn" class="badge">
+        {{ product.badge }}
+      </span> }
+        <img [src]="product.images[0] || 'assets/placeholder.jpg'" [alt]="product.name" class="product-image" />
+    </div>
+
+    <div class="content-wrapper">
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-description">{{ product.description }}</p>
+        <div class="footer-wrapper">
+            <span class="product-price">{{ formatPrice(product.price) }}</span>
+            <button mat-flat-button color="primary" (click)="openProductDialog($event)">
+        Agregar
+      </button>
+        </div>
+    </div>
+</div>
