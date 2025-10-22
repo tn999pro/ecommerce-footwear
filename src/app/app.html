@@ -1,10 +1,28 @@
-<app-header [cartItemsCount]="cartItemsCount" (cartClick)="onCartClick()">
-</app-header>
+<mat-sidenav-container class="sidenav-container">
 
-<main>
-    <app-hero-section (exploreClick)="onExploreClick()" (offersClick)="onOffersClick()">
-    </app-hero-section>
+    <mat-sidenav [(opened)]="isCartOpen" mode="over" position="end" class="cart-sidenav">
+        <h2>Carrito de Compras</h2>
+        @if (cartItems.length === 0) {
+        <p>Tu carrito está vacío</p>
+        } @else { @for (item of cartItems; track $index) {
+        <div>
+            <p>{{ item.name }} ({{ item.quantity }})</p>
+        </div>
+        } }
+    </mat-sidenav>
 
-    <app-category-grid (categorySelect)="onCategorySelected($event)"></app-category-grid>
+    <mat-sidenav-content>
+        <app-header [cartItemsCount]="cartItemsCount" (cartClick)="onCartClick()">
+        </app-header>
 
-</main>
+        <main>
+            <app-hero-section (exploreClick)="onExploreClick()" (offersClick)="onOffersClick()">
+            </app-hero-section>
+
+            <app-category-grid (categorySelect)="onCategorySelected($event)"></app-category-grid>
+
+            <app-best-sellers (addToCart)="onAddToCart($event)"></app-best-sellers>
+        </main>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -1,0 +1,16 @@
+<section class="section-container">
+    <div class="title-container">
+        <div>
+            <p class="eyebrow">Lo Más Popular</p>
+            <h2 class="title">Más Vendidos</h2>
+        </div>
+        <a href="#" class="view-all-link">Ver Todos</a>
+    </div>
+
+    <div class="grid-container">
+        @for (product of bestSellers; track product.id) {
+        <app-product-card [product]="product" (addToCart)="onAddToCart($event)">
+        </app-product-card>
+        }
+    </div>
+</section>

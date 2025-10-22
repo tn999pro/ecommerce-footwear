@@ -1,0 +1,15 @@
+<section class="section-container">
+    <div class="title-container">
+        <h2 class="title">{{ categoryTitle }}</h2>
+        <div class="product-count">{{ filteredProducts.length }} productos</div>
+    </div>
+
+    <div class="grid-container">
+        @if (filteredProducts.length > 0) { @for (product of filteredProducts; track product.id) {
+        <app-product-card [product]="product" (addToCart)="onAddToCart($event)">
+        </app-product-card>
+        } } @else {
+        <p class="no-products-message">No hay productos en esta categoría.</p>
+        }
+    </div>
+</section>

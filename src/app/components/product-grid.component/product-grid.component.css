@@ -1,0 +1,68 @@
+/* src/app/components/product-grid/product-grid.component.css */
+
+.section-container {
+    padding: 4rem 1rem 6rem;
+    /* py-16 lg:py-24, px-4 */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    /* mb-12 */
+}
+
+.title {
+    font-size: 2.25rem;
+    /* text-3xl */
+    font-weight: 700;
+}
+
+.product-count {
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #6c757d;
+    /* text-muted-foreground */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    /* gap-6 */
+}
+
+@media (min-width: 640px) {
+    /* sm: */
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* sm:grid-cols-2 */
+    }
+}
+
+@media (min-width: 1024px) {
+    /* lg: */
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        /* lg:grid-cols-3 */
+    }
+}
+
+@media (min-width: 1280px) {
+    /* xl: */
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+        /* xl:grid-cols-4 */
+    }
+}
+
+.no-products-message {
+    grid-column: 1 / -1;
+    /* Ocupa todas las columnas */
+    text-align: center;
+    color: #6c757d;
+    padding: 2rem 0;
+}
