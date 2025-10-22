@@ -1,0 +1,43 @@
+<mat-toolbar color="primary" class="sticky-header">
+    <div class="toolbar-container">
+        <span class="logo">APEX</span>
+
+        <nav class="desktop-nav">
+            <a mat-button href="#nuevos">Nuevos</a>
+            <a mat-button href="#hombre">Hombre</a>
+            <a mat-button href="#mujer">Mujer</a>
+            <a mat-button href="#ofertas">Ofertas</a>
+        </nav>
+
+        <span class="spacer"></span>
+
+        <button mat-icon-button class="desktop-nav" aria-label="Buscar">
+      <mat-icon>search</mat-icon>
+    </button>
+        <button mat-icon-button (click)="onCartClick()" aria-label="Carrito de compras">
+      <mat-icon 
+        [matBadge]="cartItemsCount > 0 ? cartItemsCount : null" 
+        matBadgeColor="warn"
+        matBadgeSize="small">
+        shopping_cart
+      </mat-icon>
+    </button>
+
+        <button mat-icon-button (click)="isMenuOpen = !isMenuOpen" class="mobile-menu-button">
+      @if (isMenuOpen) {
+        <mat-icon>close</mat-icon>
+      } @else {
+        <mat-icon>menu</mat-icon>
+      }
+    </button>
+    </div>
+
+    @if (isMenuOpen) {
+    <nav class="mobile-nav">
+        <a mat-button href="#nuevos" (click)="isMenuOpen = false">Nuevos</a>
+        <a mat-button href="#hombre" (click)="isMenuOpen = false">Hombre</a>
+        <a mat-button href="#mujer" (click)="isMenuOpen = false">Mujer</a>
+        <a mat-button href="#ofertas" (click)="isMenuOpen = false">Ofertas</a>
+    </nav>
+    }
+</mat-toolbar>
