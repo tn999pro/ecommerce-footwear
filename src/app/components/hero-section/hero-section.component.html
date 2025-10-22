@@ -1,0 +1,25 @@
+<section class="hero-container">
+    <div class="hero-content">
+        <div class="text-content">
+            <span class="eyebrow">Nueva Colección 2024</span>
+            <h2 class="title">Rendimiento<br>Sin Límites</h2>
+            <p class="description">
+                Descubre la última tecnología en calzado deportivo diseñado para atletas que buscan superar sus límites.
+            </p>
+
+            <div class="actions">
+                <button mat-raised-button color="primary" (click)="exploreClick.emit()" class="hero-button">
+          Explorar Colección
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+                <button mat-stroked-button (click)="offersClick.emit()" class="hero-button hero-button-outline">
+          Ver Ofertas
+        </button>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="assets/premium-athletic-running-shoe-floating-on-white-ba.jpg" alt="Premium Athletic Shoe" class="hero-image animate-float" />
+        </div>
+    </div>
+</section>
