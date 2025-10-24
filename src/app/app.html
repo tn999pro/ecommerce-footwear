@@ -1,14 +1,8 @@
 <mat-sidenav-container class="sidenav-container">
 
     <mat-sidenav [(opened)]="isCartOpen" mode="over" position="end" class="cart-sidenav">
-        <h2>Carrito de Compras</h2>
-        @if (cartItems.length === 0) {
-        <p>Tu carrito está vacío</p>
-        } @else { @for (item of cartItems; track $index) {
-        <div>
-            <p>{{ item.name }} ({{ item.quantity }})</p>
-        </div>
-        } }
+        <app-cart [items]="cartItems" (updateQuantity)="onUpdateCartQuantity($event)" (removeItem)="onRemoveCartItem($event)" (closeCart)="onCloseCart()">
+        </app-cart>
     </mat-sidenav>
 
     <mat-sidenav-content>
@@ -22,6 +16,12 @@
             <app-category-grid (categorySelect)="onCategorySelected($event)"></app-category-grid>
 
             <app-best-sellers (addToCart)="onAddToCart($event)"></app-best-sellers>
+
+            <app-product-grid [selectedCategory]="selectedCategory" (addToCart)="onAddToCart($event)"></app-product-grid>
+
+            <app-why-us></app-why-us>
+
+            <app-footer></app-footer>
         </main>
     </mat-sidenav-content>
 

@@ -1,0 +1,129 @@
+/* src/app/components/footer/footer.component.css */
+
+.footer-container {
+    background-color: #212529;
+    /* bg-foreground (ejemplo oscuro) */
+    color: #f8f9fa;
+    /* text-background (ejemplo claro) */
+    border-top: 1px solid #495057;
+    /* border-border (ejemplo) */
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    /* py-16 lg:py-20, px-4 */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    /* gap-10 */
+}
+
+@media (min-width: 640px) {
+    /* sm: */
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* sm:grid-cols-2 */
+    }
+}
+
+@media (min-width: 1024px) {
+    /* lg: */
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+        /* lg:grid-cols-4 */
+        gap: 3rem;
+        /* lg:gap-12 */
+    }
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    /* space-y-5 */
+}
+
+.brand-title {
+    font-size: 1.25rem;
+    /* text-xl */
+    font-weight: 700;
+}
+
+.brand-description {
+    font-size: 0.875rem;
+    /* text-sm */
+    color: rgba(248, 249, 250, 0.7);
+    /* text-background/70 */
+    line-height: 1.6;
+    /* leading-relaxed */
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    /* gap-4 */
+    padding-top: 0.5rem;
+    /* pt-2 */
+}
+
+.social-links a {
+    color: inherit;
+    /* Hereda el color del texto */
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--mat-primary-default, #3f51b5);
+    /* hover:text-accent */
+}
+
+.column-title {
+    font-weight: 600;
+    font-size: 1rem;
+    /* text-base */
+}
+
+.link-list,
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    /* space-y-3 */
+    font-size: 0.875rem;
+    /* text-sm */
+    color: rgba(248, 249, 250, 0.7);
+    /* text-background/70 */
+}
+
+.link-list a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-list a:hover {
+    color: #f8f9fa;
+    /* hover:text-background */
+}
+
+.copyright-container {
+    border-top: 1px solid rgba(248, 249, 250, 0.1);
+    /* border-background/10 */
+    margin-top: 3rem;
+    /* mt-12 */
+    padding-top: 2rem;
+    /* pt-8 */
+    text-align: center;
+    font-size: 0.875rem;
+    /* text-sm */
+    color: rgba(248, 249, 250, 0.5);
+    /* text-background/50 */
+}

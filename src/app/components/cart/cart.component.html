@@ -1,0 +1,70 @@
+<div class="cart-container">
+    <header class="cart-header">
+        <h2 class="cart-title">
+            <mat-icon>shopping_cart</mat-icon>
+            Carrito de Compras
+        </h2>
+        <button mat-icon-button (click)="closeCart.emit()" aria-label="Cerrar carrito">
+      <mat-icon>close</mat-icon>
+    </button>
+    </header>
+
+    @if (items.length === 0) {
+    <div class="empty-cart">
+        <mat-icon class="empty-cart-icon">shopping_bag</mat-icon>
+        <h3>Tu carrito está vacío</h3>
+        <p>Agrega productos para comenzar tu compra</p>
+        <button mat-stroked-button color="primary" (click)="closeCart.emit()">
+        Explorar Productos
+      </button>
+    </div>
+    } @else {
+    <mat-list class="item-list">
+        @for (item of items; track item.id + item.size + item.color) {
+        <mat-list-item class="cart-item">
+            <img matListItemAvatar [src]="item.image || 'assets/placeholder.jpg'" [alt]="item.name" class="item-image" />
+            <div matListItemTitle class="item-name">{{ item.name }}</div>
+            <div matListItemLine class="item-details">
+                Talla: {{ item.size }} | Color: {{ item.color }}
+            </div>
+            <div matListItemLine class="item-price">{{ formatPrice(item.price) }}</div>
+
+            <div class="item-controls">
+                <button mat-icon-button color="warn" (click)="onRemoveItem(item)" aria-label="Eliminar item">
+                <mat-icon>delete_outline</mat-icon>
+             </button>
+                <div class="quantity-controls">
+                    <button mat-icon-button (click)="onUpdateQuantity(item, -1)" [disabled]="item.quantity <= 1">
+                   <mat-icon>remove</mat-icon>
+                </button>
+                    <span class="quantity">{{ item.quantity }}</span>
+                    <button mat-icon-button (click)="onUpdateQuantity(item, 1)">
+                   <mat-icon>add</mat-icon>
+                </button>
+                </div>
+            </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        }
+    </mat-list>
+
+    <div class="summary-section">
+        <div class="summary-row">
+            <span>Subtotal</span>
+            <span>{{ formatPrice(subtotal) }}</span>
+        </div>
+        <div class="summary-row">
+            <span>IVA (19%)</span>
+            <span>{{ formatPrice(tax) }}</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="summary-row total-row">
+            <span>Total</span>
+            <span>{{ formatPrice(total) }}</span>
+        </div>
+        <button mat-flat-button color="primary" class="checkout-button" (click)="openCheckoutModal()">
+        Finalizar Compra
+      </button>
+    </div>
+    }
+</div>

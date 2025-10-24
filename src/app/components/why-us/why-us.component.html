@@ -1,0 +1,18 @@
+<section class="section-container">
+    <div class="title-container">
+        <p class="eyebrow">Nuestras Ventajas</p>
+        <h2 class="title">¿Por Qué Comprar con Nosotros?</h2>
+    </div>
+
+    <div class="grid-container">
+        @for (feature of features; track feature.title) {
+        <div class="feature-item">
+            <div class="icon-wrapper">
+                <mat-icon>{{ feature.icon }}</mat-icon>
+            </div>
+            <h3 class="feature-title">{{ feature.title }}</h3>
+            <p class="feature-description">{{ feature.description }}</p>
+        </div>
+        }
+    </div>
+</section>

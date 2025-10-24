@@ -6,8 +6,11 @@ import { HeroSectionComponent } from './components/hero-section/hero-section.com
 import { CartItem } from './models/cartItem.model';
 import { CategoryGridComponent } from './components/category-grid/category-grid.component';
 import { MatSidenavModule } from '@angular/material/sidenav'; 
-
-import { BestSellersComponent } from './components/best-sellers.component/best-sellers.component'; 
+import { BestSellersComponent } from './components/best-sellers/best-sellers.component'; 
+import { ProductGridComponent } from './components/product-grid/product-grid.component';
+import { WhyUsComponent } from './components/why-us/why-us.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +22,11 @@ import { BestSellersComponent } from './components/best-sellers.component/best-s
     HeaderComponent,
     HeroSectionComponent,
     CategoryGridComponent,
-    BestSellersComponent
+    BestSellersComponent,
+    ProductGridComponent,
+    WhyUsComponent,
+    FooterComponent,
+    CartComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -54,6 +61,38 @@ export class App {
 
   onCartClick(): void {
     this.isCartOpen = !this.isCartOpen; 
+  }
+
+  onUpdateCartQuantity(event: { item: CartItem, quantity: number }): void {
+    const { item, quantity } = event;
+    if (quantity === 0) {
+      // Si la cantidad es 0, elimina el item
+      this.onRemoveCartItem(item);
+    } else {
+      // Actualiza la cantidad (creando nuevo array)
+      this.cartItems = this.cartItems.map(i => 
+        (i.id === item.id && i.size === item.size && i.color === item.color)
+        ? { ...i, quantity: quantity }
+        : i
+      );
+    }
+  }
+
+  // 5. Implementa la lógica para eliminar item
+  onRemoveCartItem(itemToRemove: CartItem): void {
+    // Filtra el item (creando nuevo array)
+    this.cartItems = this.cartItems.filter(item => 
+      !(item.id === itemToRemove.id && item.size === itemToRemove.size && item.color === itemToRemove.color)
+    );
+    // Si el carrito queda vacío, lo cerramos (opcional)
+    if (this.cartItems.length === 0) {
+       this.isCartOpen = false;
+    }
+  }
+
+  // 6. Método para cerrar el carrito desde el CartComponent
+  onCloseCart(): void {
+    this.isCartOpen = false;
   }
 
 /*   // Métodos que se conectarán a los @Output de los componentes hijos
