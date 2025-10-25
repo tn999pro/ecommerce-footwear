@@ -7,6 +7,7 @@ import { Product } from '../../models/product.model';
 import { CartItem } from '../../models/cartItem.model';
 
 import { formatCurrency } from '../../utils/format';
+import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
 
 @Component({
   selector: 'app-product-card',

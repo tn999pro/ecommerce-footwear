@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { Product } from '../../models/product.model';
 import { ProductService } from '../../services/product.service';
@@ -15,8 +15,9 @@ import { CartItem } from '../../models/cartItem.model';
   templateUrl: './best-sellers.component.html',
   styleUrl: './best-sellers.component.css'
 })
-export class BestSellersComponent {
+export class BestSellersComponent implements OnInit {
   bestSellers: Product[] = [];
+  @Output() addToCart = new EventEmitter<CartItem>();
   // Inyecta el servicio de productos
   constructor(private productService: ProductService) {}
 

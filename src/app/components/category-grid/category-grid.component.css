@@ -18,6 +18,7 @@
     /* text-3xl / lg:text-4xl */
     font-weight: 700;
     text-align: center;
+    color: var(--text-primary);
 }
 
 .grid-container {
@@ -45,17 +46,17 @@
     overflow: hidden;
     border-radius: 1rem;
     /* rounded-2xl */
-    background-color: #f3f4f6;
-    /* bg-secondary (color de ejemplo) */
+    background-color: var(--surface-variant);
     transition: box-shadow 0.5s ease;
-    border: none;
+    border: 1px solid var(--border-light);
     padding: 0;
     cursor: pointer;
 }
 
 .category-card:hover {
     /* hover:shadow-2xl */
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-light);
 }
 
 .card-image {

@@ -1,1 +1,84 @@
-<p>checkout-dialog.component works!</p>
+<header class="dialog-header">
+    <h2 mat-dialog-title class="dialog-title">Finalizar Compra</h2>
+    <button mat-icon-button (click)="onCloseClick()" aria-label="Cerrar">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+  
+  <mat-dialog-content class="dialog-content">
+    <form #checkoutForm="ngForm" (ngSubmit)="openWhatsApp()" class="form-container">
+  
+      <section class="form-section">
+        <h3 class="section-title">Información del Cliente</h3>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nombre Completo *</mat-label>
+          <input matInput [(ngModel)]="formData.name" name="name" placeholder="Juan Pérez" required>
+        </mat-form-field>
+  
+        <div class="grid-cols-2">
+          <mat-form-field appearance="outline">
+            <mat-label>Teléfono *</mat-label>
+            <input matInput type="tel" [(ngModel)]="formData.phone" name="phone" placeholder="+57 300 123 4567" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+            <mat-label>Email *</mat-label>
+            <input matInput type="email" [(ngModel)]="formData.email" name="email" placeholder="juan@ejemplo.com" required email>
+            </mat-form-field>
+        </div>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Dirección (Opcional)</mat-label>
+          <input matInput [(ngModel)]="formData.address" name="address" placeholder="Calle 123 #45-67, Bogotá">
+        </mat-form-field>
+      </section>
+  
+      <section class="summary-section">
+        <h3 class="section-title">Resumen del Pedido</h3>
+        <mat-list>
+          @for (item of cartItems; track item.id + item.size + item.color) {
+            <mat-list-item class="summary-item">
+              <div matListItemTitle class="item-name">{{ item.name }}</div>
+              <div matListItemLine class="item-details">
+                Talla {{ item.size }} • {{ item.color }} • Cant. {{ item.quantity }}
+              </div>
+              <span class="item-subtotal">{{ formatPrice(item.price * item.quantity) }}</span>
+            </mat-list-item>
+          }
+        </mat-list>
+        <mat-divider></mat-divider>
+        <div class="summary-totals">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span>{{ formatPrice(subtotal) }}</span>
+          </div>
+          <div class="summary-row">
+            <span>IVA (19%)</span>
+            <span>{{ formatPrice(tax) }}</span>
+          </div>
+          <mat-divider></mat-divider>
+          <div class="summary-row total-row">
+            <span>Total</span>
+            <span>{{ formatPrice(total) }}</span>
+          </div>
+        </div>
+      </section>
+  
+      <section class="payment-section">
+        <h3 class="section-title">Métodos de Pago Disponibles</h3>
+        <ul>
+          <li>Transferencia bancaria</li>
+          <li>Tarjeta de crédito/débito</li>
+          <li>Efectivo contra entrega</li>
+        </ul>
+      </section>
+  
+      <mat-dialog-actions class="dialog-actions">
+        <button mat-flat-button color="primary" type="submit" [disabled]="!checkoutForm.form.valid">
+          Enviar Cotización por WhatsApp
+        </button>
+      </mat-dialog-actions>
+  
+    </form>
+  </mat-dialog-content>

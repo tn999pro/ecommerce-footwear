@@ -2,19 +2,29 @@
 
 .card-container {
     cursor: pointer;
+    padding: 0.5rem; /* Padding más compacto */
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    max-width: 200px; /* Ancho máximo para cards más compactas */
+    margin: 0 auto; /* Centrar las cards */
+}
+
+.card-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .image-wrapper {
     position: relative;
     aspect-ratio: 1 / 1;
-    /* aspect-square */
-    background-color: #f3f4f6;
-    /* bg-secondary */
-    border-radius: 1rem;
-    /* rounded-2xl */
+    /* aspect-square para cards más compactas */
+    background-color: var(--surface-variant);
+    border-radius: 0.75rem;
+    /* rounded-xl */
     overflow: hidden;
-    margin-bottom: 1rem;
-    /* mb-4 */
+    margin-bottom: 0.75rem;
+    /* mb-3 */
+    border: 1px solid var(--border-light);
 }
 
 .product-image {
@@ -44,6 +54,9 @@
     padding: 0 8px;
     min-width: auto;
     line-height: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 0.375rem;
 }
 
 .content-wrapper {
@@ -57,22 +70,26 @@
     font-weight: 600;
     line-height: 1.25;
     transition: color 0.3s ease;
+    font-size: 0.875rem; /* Texto más pequeño como en React */
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
 }
 
 .card-container:hover .product-name {
-    color: var(--mat-primary-default, #3f51b5);
+    color: var(--primary-color);
     /* group-hover:text-accent */
 }
 
 .product-description {
-    font-size: 0.875rem;
-    /* text-sm */
-    color: #6c757d;
+    font-size: 0.75rem;
+    /* text-xs */
+    color: var(--text-secondary);
     /* text-muted-foreground */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     /* line-clamp-1 */
+    margin-bottom: 0.5rem;
 }
 
 .footer-wrapper {
@@ -84,7 +101,8 @@
 }
 
 .product-price {
-    font-size: 1.125rem;
-    /* text-lg */
+    font-size: 1rem;
+    /* text-base */
     font-weight: 700;
+    color: var(--text-primary);
 }

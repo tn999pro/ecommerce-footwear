@@ -8,6 +8,8 @@ import { MatDividerModule } from '@angular/material/divider'; // Separadores
 import { CommonModule } from '@angular/common';
 import { CartItem } from '../../models/cartItem.model';
 import { formatCurrency } from '../../utils/format';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { CheckoutDialogComponent } from '../checkout-dialog.component/checkout-dialog.component';
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -16,12 +18,14 @@ import { formatCurrency } from '../../utils/format';
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatDialogModule,
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
 export class CartComponent implements OnChanges {
+  
 // Recibe los items del carrito desde AppComponent
   @Input() items: CartItem[] = []; 
   // Emite eventos para actualizar cantidad
@@ -37,7 +41,7 @@ export class CartComponent implements OnChanges {
 
   // Inyectamos MatDialog (lo usaremos más tarde)
   // constructor(public dialog: MatDialog) {}
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   // ngOnChanges recalcula los totales cada vez que cambia el array 'items'
   ngOnChanges(changes: SimpleChanges): void {
@@ -71,19 +75,28 @@ export class CartComponent implements OnChanges {
     return formatCurrency(price);
   }
 
-  // Abre el modal de checkout (implementación futura)
+  // función para abrir el modal
   openCheckoutModal(): void {
-    console.log("Abrir modal de checkout con:", this.items, this.total);
-    // const dialogRef = this.dialog.open(CheckoutDialogComponent, {
-    //   data: { items: this.items, subtotal: this.subtotal, tax: this.tax, total: this.total },
-    //   width: '600px', // O el ancho que prefieras
-    // });
+    const dialogRef = this.dialog.open(CheckoutDialogComponent, {
+      // Pasa los datos necesarios al modal
+      data: { 
+        items: this.items, 
+        subtotal: this.subtotal, 
+        tax: this.tax, 
+        total: this.total 
+      },
+      width: '600px', // O el ancho que prefieras
+      autoFocus: false, // Evita que enfoque el primer campo automáticamente
+      maxHeight: '90vh' // Limita altura si el contenido es muy largo
+    });
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result === 'success') { // Si la compra fue 'exitosa' (simulado)
-    //     // Podrías vaciar el carrito o mostrar un mensaje
-    //     console.log('Compra finalizada');
-    //   }
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+      // Si el modal devolvió 'submitted' (se envió por WhatsApp)
+      if (result === 'submitted') {
+        console.log('Cotización enviada, cerrar carrito.');
+        this.closeCart.emit(); // Cierra el Sidenav
+        // Opcional: podrías emitir un evento para vaciar el carrito en AppComponent
+      }
+    });
   }
 }

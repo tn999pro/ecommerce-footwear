@@ -16,7 +16,7 @@ import { CartComponent } from './components/cart/cart.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
+    //RouterOutlet,
     CommonModule,
     MatSidenavModule,
     HeaderComponent,

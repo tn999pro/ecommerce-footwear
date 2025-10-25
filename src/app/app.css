@@ -6,3 +6,29 @@
     width: 380px;
     padding: 1.5rem;
 }
+
+/* Mejoras globales de espaciado y tipografía */
+main {
+    line-height: 1.6;
+    background-color: var(--background-color);
+}
+
+/* Mejorar el espaciado entre secciones */
+section {
+    margin-bottom: 2rem;
+}
+
+/* Ajustar el padding de las cards de productos */
+.card-container {
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-light);
+}
+
+.card-container:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}

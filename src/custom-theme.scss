@@ -9,8 +9,7 @@
 html {
   @include mat.theme((
     color: (
-      primary: mat.$magenta-palette,
-      tertiary: mat.$violet-palette,
+      primary: mat.$blue-palette,
     ),
     typography: Roboto,
     density: 0,
@@ -32,4 +31,48 @@ body {
 
   // Reset the user agent margin.
   margin: 0;
+}
+
+// Paleta de colores personalizada basada en React
+:root {
+  // Colores principales
+  --primary-color: #2563eb; // Azul moderno
+  --primary-dark: #1d4ed8;
+  --primary-light: #3b82f6;
+  
+  // Colores secundarios
+  --secondary-color: #64748b; // Gris azulado
+  --secondary-dark: #475569;
+  --secondary-light: #94a3b8;
+  
+  // Colores de acento
+  --accent-color: #f59e0b; // Naranja/Amber
+  --accent-dark: #d97706;
+  --accent-light: #fbbf24;
+  
+  // Colores neutros
+  --background-color: #ffffff;
+  --surface-color: #f8fafc;
+  --surface-variant: #f1f5f9;
+  
+  // Colores de texto
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  
+  // Colores de estado
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+  
+  // Colores de bordes
+  --border-color: #e2e8f0;
+  --border-light: #f1f5f9;
+  
+  // Sombras
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }

@@ -7,6 +7,7 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 
 @Component({
   selector: 'app-product-grid',
+  standalone: true,
   imports: [
     CommonModule,
     ProductCardComponent
