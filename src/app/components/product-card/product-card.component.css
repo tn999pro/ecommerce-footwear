@@ -5,7 +5,7 @@
     padding: 0.5rem; /* Padding más compacto */
     border-radius: 0.75rem;
     transition: all 0.3s ease;
-    max-width: 200px; /* Ancho máximo para cards más compactas */
+    max-width: 400px;
     margin: 0 auto; /* Centrar las cards */
 }
 
@@ -67,11 +67,11 @@
 }
 
 .product-name {
-    font-weight: 600;
-    line-height: 1.25;
+    font-weight: 580;
+    /* line-height: 1.25; */
     transition: color 0.3s ease;
-    font-size: 0.875rem; /* Texto más pequeño como en React */
-    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    margin: 0 0;
     color: var(--text-primary);
 }
 
@@ -81,7 +81,7 @@
 }
 
 .product-description {
-    font-size: 0.75rem;
+    font-size: 1rem;
     /* text-xs */
     color: var(--text-secondary);
     /* text-muted-foreground */
@@ -89,7 +89,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     /* line-clamp-1 */
-    margin-bottom: 0.5rem;
+    margin: 0 0;
 }
 
 .footer-wrapper {
@@ -105,4 +105,8 @@
     /* text-base */
     font-weight: 700;
     color: var(--text-primary);
+}
+
+.button-style{
+border-radius: 5% 
 }
