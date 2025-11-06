@@ -63,7 +63,7 @@ export class CheckoutDialogComponent {
     // Aquí iría el resto de la lógica para generar el mensaje y abrir WhatsApp
     const invoiceNumber = `INV-${Date.now()}\n\n`;
     const date =new Date().toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
-    let message = `🏃‍♂️ *COTIZACIÓN APEX SPORTS*\n\n`;
+    let message = `🏃‍♂️ *COTIZACIÓN KR-SPORTS SPORTS*\n\n`;
     message += `📋 *Número:* ${invoiceNumber}\n`;
     message += `📅 *Fecha:* ${date}\n\n`;
     message += `👤 *DATOS DEL CLIENTE*\n`;
@@ -92,7 +92,7 @@ export class CheckoutDialogComponent {
     message += `• Efectivo contra entrega\n\n`;
     message += `📞 *Contacto*\n`;
     message += `WhatsApp: +57 300 123 4567\n`;
-    message += `Email: ventas@apexsports.com\n\n`;
+    message += `Email: ventas@KR-SPORTSsports.com\n\n`;
     message += `✅ Envío gratis en compras superiores a $200.000\n`;
     message += `🔄 30 días de garantía\n`;
 

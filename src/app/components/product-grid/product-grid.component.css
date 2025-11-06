@@ -3,14 +3,14 @@
 .section-container {
     padding: 2rem 1rem 3rem;
     /* Reducir padding vertical para menos espacio */
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .title-container {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
     margin-bottom: 1.5rem;
     /* Reducir margen inferior */
 }
@@ -32,43 +32,30 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+     grid-template-columns: repeat(4, minmax(340px, 1fr));
+    /* grid-template-columns: repeat(4,344px); */
+    gap: 1.5rem;
+    justify-content: center;
     /* Cards más compactas como en React */
 }
 
-@media (min-width: 640px) {
-    /* sm: */
+/* Responsive adjustments */
+@media (max-width: 1400px) {
     .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(4, minmax(340px, 1fr));
+        /* grid-template-columns: repeat(4,344px); */
     }
 }
 
-@media (min-width: 768px) {
-    /* md: */
+@media (max-width: 1050px) {
     .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        grid-template-columns: repeat(3, 322px);
     }
 }
 
-@media (min-width: 1024px) {
-    /* lg: */
+@media (max-width: 700px) {
     .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(2, 290px);
     }
 }
 
-@media (min-width: 1280px) {
-    /* xl: */
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    }
-}
-
-.no-products-message {
-    grid-column: 1 / -1;
-    /* Ocupa todas las columnas */
-    text-align: center;
-    color: #6c757d;
-    padding: 2rem 0;
-}

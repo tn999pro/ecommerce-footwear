@@ -11,9 +11,9 @@
 .hero-content {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
     align-items: center;
-    max-width: 1200px;
+    width: 1200px;
     /* Equivalente a 'container' */
     margin: 0 auto;
 }
@@ -39,7 +39,7 @@
 }
 
 .title {
-    font-size: 3.75rem;
+    font-size: 5rem;
     /* text-6xl */
     font-weight: 700;
     line-height: 1.1;

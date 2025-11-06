@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" class="sticky-header">
     <div class="toolbar-container">
-        <span class="logo">APEX</span>
+        <span class="logo">KR-SPORTS</span>
 
         <nav class="desktop-nav">
             <a mat-button href="#nuevos">Nuevos</a>
@@ -10,10 +10,6 @@
         </nav>
 
         <span class="spacer"></span>
-
-        <button mat-icon-button class="desktop-nav" aria-label="Buscar">
-      <mat-icon>search</mat-icon>
-    </button>
         <button mat-icon-button (click)="onCartClick()" aria-label="Carrito de compras">
       <mat-icon 
         [matBadge]="cartItemsCount > 0 ? cartItemsCount : null" 

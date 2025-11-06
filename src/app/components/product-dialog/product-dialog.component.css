@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-right: 20px;
 }
 
 
@@ -117,7 +118,7 @@
 }
 
 .size-toggle-button {
-    border-radius: 0.5rem !important;
+    border-radius: 1rem !important;
 }
 
 .add-to-cart-button {
