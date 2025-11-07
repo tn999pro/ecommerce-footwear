@@ -1,23 +1,44 @@
 /* src/app/components/header/header.component.css */
 
 .sticky-header {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(42, 42, 42, 0.8);
+    transition: all 0.3s ease;
+}
+
+.sticky-header.scrolled {
+    background-color: var(--background-primary);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .toolbar-container {
     display: flex;
     align-items: center;
     width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.75rem 2rem;
     justify-content: space-between;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
     margin-right: 2rem;
-    color: var(--primary-color);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: var(--accent-primary);
 }
 
 .spacer {
@@ -26,47 +47,136 @@
 
 .desktop-nav {
     display: none;
-    /* Oculto en móvil por defecto */
+    gap: 2rem;
+    align-items: center;
+}
+
+.desktop-nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.desktop-nav a::after {
+    content: '';
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-primary);
+    transition: width 0.3s ease;
+}
+
+.desktop-nav a:hover {
+    color: var(--accent-primary);
+}
+
+.desktop-nav a:hover::after {
+    width: 100%;
 }
 
 .mobile-menu-button {
     display: inline-flex;
-    /* Visible en móvil por defecto */
+    color: var(--text-primary);
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu-button:hover {
+    color: var(--accent-primary);
 }
 
 .mobile-nav {
-    /* Estilos para el panel de menú móvil */
     display: flex;
     flex-direction: column;
     width: 100%;
     position: absolute;
     top: 100%;
-    /* Justo debajo del toolbar */
     left: 0;
-    background-color: var(--mat-toolbar-container-background-color, #f5f5f5);
-    /* Usa el color del tema */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--background-primary);
+    border-bottom: 1px solid var(--border-primary);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     padding: 1rem 0;
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
 }
 
 .mobile-nav a {
-    justify-content: flex-start;
-    padding: 0 1.5rem;
-    line-height: 40px;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
+.mobile-nav a:hover {
+    background-color: var(--background-secondary);
+    color: var(--accent-primary);
+}
+
+.cart-icon {
+    color: var(--text-primary);
+    position: relative;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.cart-icon:hover {
+    color: var(--accent-primary);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--accent-primary);
+    color: var(--text-primary);
+    font-size: 0.75rem;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+}
 
 /* Media Query para escritorio */
-
 @media (min-width: 768px) {
     .desktop-nav {
         display: flex;
-        gap: 1rem;
     }
+    
     .mobile-menu-button {
         display: none;
+    }
+    
+    .mobile-nav {
+        display: none;
+    }
+}
+
+/* Media Query para pantallas más grandes */
+@media (min-width: 1200px) {
+    .toolbar-container {
+        padding: 1rem 4rem;
     }
 }

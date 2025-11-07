@@ -9,7 +9,7 @@
 html {
   @include mat.theme((
     color: (
-      primary: mat.$blue-palette,
+      primary: mat.$red-palette,
     ),
     typography: Roboto,
     density: 0,
@@ -17,62 +17,55 @@ html {
 }
 
 body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
+  color-scheme: dark;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
   font: var(--mat-sys-body-medium);
 
   // Reset the user agent margin.
   margin: 0;
 }
 
-// Paleta de colores personalizada basada en React
+// Nueva paleta de colores oscura
 :root {
-  // Colores principales
-  --primary-color: #2563eb; // Azul moderno
-  --primary-dark: #1d4ed8;
-  --primary-light: #3b82f6;
+  // Colores de fondo
+  --background-primary: #0a0a0a;
+  --background-secondary: #1a1a1a;
+  --background-elevated: #1f1f1f;
   
-  // Colores secundarios
-  --secondary-color: #64748b; // Gris azulado
-  --secondary-dark: #475569;
-  --secondary-light: #94a3b8;
-  
-  // Colores de acento
-  --accent-color: #f59e0b; // Naranja/Amber
-  --accent-dark: #d97706;
-  --accent-light: #fbbf24;
-  
-  // Colores neutros
-  --background-color: #ffffff;
-  --surface-color: #f8fafc;
-  --surface-variant: #f1f5f9;
+  // Colores de acento (Rojos)
+  --accent-primary: #E63946;
+  --accent-hover: #DC2626;
+  --accent-muted: rgba(230, 57, 70, 0.1);
   
   // Colores de texto
-  --text-primary: #0f172a;
-  --text-secondary: #64748b;
-  --text-muted: #94a3b8;
-  
-  // Colores de estado
-  --success-color: #10b981;
-  --warning-color: #f59e0b;
-  --error-color: #ef4444;
-  --info-color: #3b82f6;
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
   
   // Colores de bordes
-  --border-color: #e2e8f0;
-  --border-light: #f1f5f9;
+  --border-primary: #2a2a2a;
+  --border-light: #404040;
+  
+  // Colores de estado
+  --success-color: #059669;
+  --warning-color: #D97706;
+  --error-color: #DC2626;
+  --info-color: #2563EB;
+  
+  // Overlays y gradientes
+  --overlay-dark: rgba(0, 0, 0, 0.7);
+  --overlay-accent: rgba(230, 57, 70, 0.1);
+  --gradient-primary: linear-gradient(45deg, var(--accent-primary), var(--accent-hover));
+  --gradient-dark: linear-gradient(to bottom, var(--background-secondary), var(--background-primary));
   
   // Sombras
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.6);
+  
+  // Efectos especiales
+  --glow-accent: 0 0 20px rgba(230, 57, 70, 0.3);
+  --backdrop-blur: blur(8px);
 }

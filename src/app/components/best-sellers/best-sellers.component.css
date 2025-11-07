@@ -1,48 +1,105 @@
 /* src/app/components/best-sellers/best-sellers.component.css */
 
 .section-container {
-    padding: 2rem 1rem 3rem;
-    /* Reducir padding vertical para menos espacio */
+    padding: 4rem 2rem;
     max-width: 1400px;
     margin: 0 auto;
+    background-color: var(--background-primary);
+    position: relative;
+}
+
+.section-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--accent-primary) 50%, 
+        transparent 100%);
+    opacity: 0.3;
 }
 
 .title-container {
-    margin-bottom: 1.5rem;
-    /* Reducir margen inferior */
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
 }
 
 .title {
-    font-size: 2.25rem;
-    /* text-3xl */
-    font-weight: 700;
-    text-align: left; /* Alineado a la izquierda como en React */
+    font-size: 3rem;
+    font-weight: 800;
     color: var(--text-primary);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-primary);
+    border-radius: 2px;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(322px, 1fr));
-    
-    gap: 1.5rem;
+    grid-template-columns: repeat(4, 322px);
+    gap: 2rem;
     justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
+/* Media Queries con los breakpoints específicos */
 @media (max-width: 1400px) {
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(322px, 1fr));
-    }
-}
-
-@media (max-width: 1050px) {
     .grid-container {
         grid-template-columns: repeat(3, 322px);
     }
 }
 
+@media (max-width: 1050px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 322px);
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+}
+
 @media (max-width: 700px) {
     .grid-container {
-        grid-template-columns: repeat(2, 290px);
+        grid-template-columns: repeat(1, 322px);
+        gap: 1.5rem;
+    }
+    
+    .section-container {
+        padding: 3rem 1rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 

@@ -1,4 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+/* Estilos globales */
+html, body { 
+    height: 100%;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow-x: hidden;
+}
+
+/* Estilos globales para Material Components */
+.mat-mdc-button-base {
+    font-weight: 500 !important;
+}
+
+.mat-mdc-raised-button.mat-primary {
+    background-color: var(--accent-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+.mat-mdc-outlined-button {
+    color: var(--text-primary) !important;
+    border-color: var(--border-primary) !important;
+}
+
+.mat-mdc-card {
+    background-color: var(--background-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Personalización de scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-light);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
+}
+
+/* Estilos para selección de texto */
+::selection {
+    background: var(--accent-primary);
+    color: var(--text-primary);
+}
+
+/* Ajustes para inputs y campos de formulario */
+input, textarea, select {
+    background-color: var(--background-secondary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-primary) !important;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 2px var(--accent-muted) !important;
+}
