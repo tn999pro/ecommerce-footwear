@@ -29,13 +29,13 @@ export class HeroSectionComponent {
     },
     {
       id: 1,
-      imageUrl: 'assets/modern-basketball-shoe-premium-design.jpg',
+      imageUrl: 'assets/basketball-shoes-on-court.jpg',
       alt: 'Modern Basketball Shoe'
     },
     {
       id: 2,
-      imageUrl: 'assets/urban-street-style-sneaker-premium.jpg',
-      alt: 'Urban Street Style Sneaker'
+      imageUrl: 'assets/neon-green-running-shoe-side-view.jpg',
+      alt: 'Neon Green Running Shoe'
     }
   ];
 }

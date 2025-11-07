@@ -136,7 +136,7 @@
 }
 
 .hero-button-outline:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgb(220, 53, 65);
     border-color: var(--accent-primary);
     transform: translateY(-3px);
     box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.3);

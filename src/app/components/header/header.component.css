@@ -6,15 +6,17 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: rgba(18, 18, 18, 0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(42, 42, 42, 0.8);
-    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease-in-out;
 }
 
 .sticky-header.scrolled {
-    background-color: var(--background-primary);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(239, 68, 68, 0.2);
 }
 
 .toolbar-container {
