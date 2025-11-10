@@ -2,60 +2,46 @@
 
 .section-container {
     padding: 2rem 1rem 3rem;
-    /* Reducir padding vertical para menos espacio */
     max-width: 1400px;
     margin: 0 auto;
+    box-sizing: border-box; /* Asegura que el padding no cause overflow */
 }
 
 .title-container {
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
     margin-bottom: 1.5rem;
-    /* Reducir margen inferior */
 }
 
 .title {
     font-size: 2.25rem;
-    /* text-3xl */
     font-weight: 700;
-    text-align: left; /* Alineado a la izquierda como en React */
+    text-align: left;
     color: var(--text-primary);
 }
 
 .product-count {
     font-size: 0.875rem;
-    /* text-sm */
     color: var(--text-secondary);
-    /* text-muted-foreground */
 }
 
 .grid-container {
     display: grid;
-     grid-template-columns: repeat(4, minmax(340px, 1fr));
-    /* grid-template-columns: repeat(4,344px); */
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     gap: 1.5rem;
-    justify-content: center;
-    /* Cards más compactas como en React */
+    width: 100%; /* Asegura que el grid ocupe el ancho del contenedor */
 }
 
-/* Responsive adjustments */
-@media (max-width: 1400px) {
-    .grid-container {
-        grid-template-columns: repeat(4, minmax(340px, 1fr));
-        /* grid-template-columns: repeat(4,344px); */
+/* Media Queries para mejorar la responsividad en pantallas pequeñas */
+@media (max-width: 600px) {
+    .section-container {
+        padding: 2rem 0.5rem 3rem;
     }
-}
 
-@media (max-width: 1050px) {
     .grid-container {
-        grid-template-columns: repeat(3, 322px);
+        gap: 1rem;
     }
-}
 
-@media (max-width: 700px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 290px);
+    .title {
+        font-size: 1.8rem;
     }
 }
 

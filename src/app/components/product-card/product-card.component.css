@@ -1,7 +1,7 @@
 /* src/app/components/product-card/product-card.component.css */
 
 .card-container {
-    width: 322px;
+    width: 100%;
     height: 344px;
     cursor: pointer;
     padding: 1rem;

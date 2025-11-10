@@ -15,38 +15,42 @@
         <h3>Tu carrito está vacío</h3>
         <p>Agrega productos para comenzar tu compra</p>
         <button mat-stroked-button color="primary" (click)="closeCart.emit()">
-        Explorar Productos
-      </button>
+            Explorar Productos
+        </button>
     </div>
     } @else {
-    <mat-list class="item-list">
+    <div class="items-container">
         @for (item of items; track item.id + item.size + item.color) {
-        <mat-list-item class="cart-item">
-            <img matListItemAvatar [src]="item.image || 'assets/placeholder.jpg'" [alt]="item.name" class="item-image" />
-            <div matListItemTitle class="item-name">{{ item.name }}</div>
-            <div matListItemLine class="item-details">
-                Talla: {{ item.size }} | Color: {{ item.color }}
+        <div class="cart-item">
+            <!-- Columna 1: Imagen -->
+            <img [src]="item.image || 'assets/placeholder.jpg'" [alt]="item.name" class="item-image" />
+            
+            <!-- Columna 2: Información -->
+            <div class="item-info">
+                <h3 class="item-name">{{ item.name }}</h3>
+                <p class="item-details">Talla: {{ item.size }}</p>
+                <p class="item-details">Color: {{ item.color }}</p>
+                <p class="item-price">{{ formatPrice(item.price) }}</p>
             </div>
-            <div matListItemLine class="item-price">{{ formatPrice(item.price) }}</div>
 
+            <!-- Columna 3: Controles -->
             <div class="item-controls">
-                <button mat-icon-button color="warn" (click)="onRemoveItem(item)" aria-label="Eliminar item">
-                <mat-icon>delete_outline</mat-icon>
-             </button>
+                <button mat-icon-button class="remove-button" (click)="onRemoveItem(item)">
+                    <mat-icon>delete_outline</mat-icon>
+                </button>
                 <div class="quantity-controls">
                     <button mat-icon-button (click)="onUpdateQuantity(item, -1)" [disabled]="item.quantity <= 1">
-                   <mat-icon>remove</mat-icon>
-                </button>
+                        <mat-icon>remove</mat-icon>
+                    </button>
                     <span class="quantity">{{ item.quantity }}</span>
                     <button mat-icon-button (click)="onUpdateQuantity(item, 1)">
-                   <mat-icon>add</mat-icon>
-                </button>
+                        <mat-icon>add</mat-icon>
+                    </button>
                 </div>
             </div>
-        </mat-list-item>
-        <mat-divider></mat-divider>
+        </div>
         }
-    </mat-list>
+    </div>
 
     <div class="summary-section">
         <div class="summary-row">
@@ -63,8 +67,8 @@
             <span>{{ formatPrice(total) }}</span>
         </div>
         <button mat-flat-button color="primary" class="checkout-button" (click)="openCheckoutModal()">
-        Finalizar Compra
-      </button>
+            Finalizar Compra
+        </button>
     </div>
     }
 </div>

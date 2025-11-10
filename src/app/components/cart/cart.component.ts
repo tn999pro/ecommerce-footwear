@@ -60,7 +60,7 @@ export class CartComponent implements OnChanges {
   // Emite el evento para actualizar cantidad
   onUpdateQuantity(item: CartItem, change: number): void {
     const newQuantity = item.quantity + change;
-    if (newQuantity >= 0) { // No permite cantidad negativa
+    if (newQuantity > 0) { // No permite cantidad cero o negativa desde aquí
       this.updateQuantity.emit({ item, quantity: newQuantity });
     }
   }
@@ -98,5 +98,13 @@ export class CartComponent implements OnChanges {
         // Opcional: podrías emitir un evento para vaciar el carrito en AppComponent
       }
     });
+  }
+
+  textCut(text: string, maxLength: number): string {
+    console.log(text.length);
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return text.slice(0, maxLength) + '...';
   }
 }

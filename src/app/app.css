@@ -3,8 +3,29 @@
 }
 
 .cart-sidenav {
-    width: 380px;
-    padding: 1.5rem;
+    width: 600px; /* Ancho aumentado para mejor visualización */
+    max-width: 90vw; /* Responsive en móviles */
+    padding: 0;
+    background-color: #111;
+}
+
+/* Estilo para la barra de desplazamiento del carrito */
+.cart-sidenav ::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cart-sidenav ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.cart-sidenav ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.cart-sidenav ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* Mejoras globales de espaciado y tipografía */

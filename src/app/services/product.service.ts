@@ -320,6 +320,27 @@ private products: Product[] = [
       "Suela con grip 360°",
     ],
   },
+  {
+    id: "16",
+    name: "Agility sports",
+    price: 399900,
+    description: "Entrenamiento funcional de alto nivel con soporte multidireccional y amortiguación adaptativa.",
+    category: "training",
+    images: [
+      "assets/logo.png",
+      "assets/placeholder.svg",
+      "assets/placeholder.svg",
+      "assets/placeholder.svg",
+    ],
+    sizes: ["38", "39", "40", "41", "42", "43", "44", "45"],
+    colors: ["Negro/Amarillo", "Blanco/Azul", "Gris/Verde"],
+    features: [
+      "Soporte multidireccional",
+      "Amortiguación adaptativa",
+      "Upper transpirable reforzado",
+      "Suela con grip 360°",
+    ],
+  },
 ];
 constructor() {}
 
